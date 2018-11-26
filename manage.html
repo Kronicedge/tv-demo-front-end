@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Manage Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<header class="menu">
+	<h1>
+		<span>Manage</span>
+		<a href="preview.html">Preview</a>
+	</h1>
+</header>
+
+<body>
+	<div class="wrapper">
+
+		<div class="sidebar">
+			<h1>Shows</h1>
+			<ul class="showlist">
+				<li>
+					<span>
+						<p>King of the Hill</p>
+					</span>
+					<!-- Remember to try optimizing this again <input class="deletebutton" type="button" value="-"></input> -->
+					 <span><input type="button" value="-"></span> 
+				</li>
+				<li>
+					<span>
+						<p>It's Always Sunny in Philadelphia</p>
+					</span>
+					<span><input type="button" value="-"></span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="manage_content">
+			<h1>Add a Show</h1>
+			<form class="textfields">
+				<div>
+					<label>
+						<span>Name:</span>
+						<span><input type="search" name="name"></span></label>
+				</div>
+				<div>
+					<label>
+						<span>Rating:</span>
+						<span><input type="number" name="rating"></span></label>
+				</div>
+				<div>
+					<label>
+						<span>Image URL:</span>
+						<span><input type="url" name="imageURL"></span>
+					</label>
+				</div>
+				<div>
+					<label>
+						<span><input type="submit" value="Create Entry"></span>
+					</label>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
