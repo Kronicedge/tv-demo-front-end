@@ -4,6 +4,7 @@
 	justify-content: space-evenly;
 	border: 4px solid;
 	text-decoration: underline;
+	font-size: 50px;
 }
 
 .menu h1 :first-child {
@@ -69,6 +70,10 @@
 
 footer, header {
 	background: rgb(255, 20, 20);
+}
+
+.menu a:visited {
+	color: black;
 }
 
 
