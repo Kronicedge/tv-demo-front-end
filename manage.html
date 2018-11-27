@@ -6,59 +6,54 @@
 	<title>Manage Page</title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-<header class="menu">
-	<h1>
-		<span>Manage</span>
-		<a href="preview.html">Preview</a>
-	</h1>
-</header>
+
 
 <body>
-	<div class="wrapper">
-
-		<div class="sidebar">
-			<h1>Shows</h1>
+	<header class="menu">
+		<h1>
+			<span>Manage</span>
+			<a href="preview.html">Preview</a>
+		</h1>
+	</header>
+	<main class="manage_wrapper">
+		<section class="manage_sidebar">
+			<h2>Shows</h2>
 			<ul class="manage_showlist">
 				<li>
-					<span><input type="button" value="King of the Hill"></span>
+					<input type="button" value="King of the Hill" />
 					<!-- Remember to try optimizing this again <input class="deletebutton" type="button" value="-"></input> -->
-					 <span><input type="button" value="-"></span> 
+					<input type="button" value="-" />
 				</li>
 				<li>
-					<span><input type="button" value="It's Always Sunny in Philadelphia"></span>					</span>
-					<span><input type="button" value="-"></span>
+					<input type="button" value="It's Always Sunny in Philadelphia" />
+					<input type="button" value="-" />
 				</li>
 			</ul>
-		</div>
-
-		<div class="manage_content">
-			<h1>Add a Show</h1>
+		</section>
+		<section class="manage_content">
+			<h2>Add a Show</h2>
 			<form class="textfields">
 				<div>
-					<label>
-						<span>Name:</span>
-						<span><input type="search" name="name"></span></label>
+					<label>Name:</label>
+					<input type="search" name="name" />
 				</div>
 				<div>
-					<label>
-						<span>Rating:</span>
-						<span><input type="number" name="rating"></span></label>
+					<label>Rating:</label>
+					<input type="number" name="rating" />
 				</div>
 				<div>
-					<label>
-						<span>Image URL:</span>
-						<span><input type="url" name="imageURL"></span>
-					</label>
+					<label>Image URL:</label>
+					<input type="url" name="imageURL" />
 				</div>
-				<div>
-					<label>
-						<span><input type="submit" value="Create Entry"></span>
-					</label>
-				</div>
-
+				<input type="submit" value="Create Entry">
 			</form>
-		</div>
-	</div>
+		</section>
+	</main>
+	<footer>
+		<p>Notflix by Myles</p>
+	</footer>
 </body>
+
+
 
 </html>
