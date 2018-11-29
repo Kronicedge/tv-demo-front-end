@@ -74,7 +74,7 @@ footer {
 	padding: 0px;
 }
 
-.manage_showlist li input:last-child{
+.manage_showlist li button:last-of-type{
 	background: red;
 	border-radius: 50%;
 	margin-left: 10px;
@@ -125,7 +125,7 @@ footer {
 	margin-left: 10px;
 }
 
-.textfields input {
+.textfields button {
 	margin-left: 90px;
 }
 
