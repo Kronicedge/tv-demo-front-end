@@ -8,7 +8,14 @@
 </head>
 
 <body>
-	<script src="./js/script.js"></script>
+	<script>
+		function clickedShow1() {
+			console.log("You clicked King of the Hill")
+		 }
+		 function clickedShow2() {
+			console.log("You clicked It's Always Sunny in Philadelphia")
+		 }
+	</script>
 	<header class="menu">
 		<h1>
 			<a href="manage.html">Manage</a>
@@ -21,10 +28,10 @@
 			<h2>Shows</h2>
 			<ul class="preview_showlist">
 				<li>
-					<input type="button" value="King of the Hill">
+					<input type="button" onclick="clickedShow1()" value="King of the Hill">
 				</li>
 				<li>
-					<input type="button" value="It's Always Sunny in Philadelphia">
+					<input type="button" onclick="clickedShow2()" value="It's Always Sunny in Philadelphia">
 				</li>
 			</ul>
 		</section>

@@ -9,7 +9,24 @@
 
 
 <body>
-	<script src="./js/script.js"></script>
+	<script>
+		 function clickedShow1() {
+			 console.log("You clicked King of the Hill")
+		 }
+		 function clickedDeleteShow1() {
+			 console.log("You clicked to delete King of the Hill")
+		 }
+		 function clickedShow2() {
+			 console.log("You clicked It's Always Sunny in Philadelphia")
+		 }
+		 function clickedDeleteShow2() {
+			 console.log("You clicked to delete It's Always Sunny in Philadelphia")
+		 }
+		 function clickedSubmit() {
+			 console.log("You clicked submit")
+		 }
+	</script>
+
 	<header class="menu">
 		<h1>
 			<span>Manage</span>
@@ -21,13 +38,13 @@
 			<h2>Shows</h2>
 			<ul class="manage_showlist">
 				<li>
-					<input type="button" value="King of the Hill" />
+					<input type="button" onclick="clickedShow1()" value="King of the Hill" />
 					<!-- Remember to try optimizing this again <input class="deletebutton" type="button" value="-"></input> -->
-					<input type="button" value="-" />
+					<input type="button" onclick="clickedDeleteShow1()" value="-" />
 				</li>
 				<li>
-					<input type="button" value="It's Always Sunny in Philadelphia" />
-					<input type="button" value="-" />
+					<input type="button" onclick="clickedShow2()" value="It's Always Sunny in Philadelphia" />
+					<input type="button" onclick="clickedDeleteShow2()" value="-" />
 				</li>
 			</ul>
 		</section>
@@ -46,7 +63,7 @@
 					<label>Image URL:</label>
 					<input type="url" name="imageURL" />
 				</div>
-				<input type="submit" value="Create Entry">
+				<input type="submit" onclick="clickedSubmit()" value="Create Entry">
 			</form>
 		</section>
 	</main>
