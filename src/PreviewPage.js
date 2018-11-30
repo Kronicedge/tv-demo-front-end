@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import 'Style.css'
+import './Style.css'
 
 class PreviewPage extends Component {
     render = () => {
@@ -13,17 +13,17 @@ class PreviewPage extends Component {
                         console.log("You clicked It's Always Sunny in Philadelphia")
                     }
                 </script>
-                <header class="menu">
+                <header className="menu">
                     <h1>
                         <a href="manage.html">Manage</a>
                         <span>Preview</span>
                     </h1>
                 </header>
-                <section class="preview_wrapper">
+                <section className="preview_wrapper">
             
-                    <section class="sidebar">
+                    <section className="sidebar">
                         <h2>Shows</h2>
-                        <ul class="showlist">
+                        <ul className="showlist">
                             <li>
                             <button onclick={this.clickedShow1}>King of the Hill</button>
                             </li>
@@ -33,11 +33,11 @@ class PreviewPage extends Component {
                         </ul>
                     </section>
             
-                    <section class="content_left">
+                    <section className="content_left">
                         <h2>Show Name</h2>
                         <img src="https://vignette.wikia.nocookie.net/soundeffects/images/4/42/KOTH_Logo.jpg/revision/latest?cb=20140530074540"/>
                     </section>
-                    <h2 class="content_right">Rating</h2>
+                    <h2 className="content_right">Rating</h2>
             
                 </section>
                 <footer>

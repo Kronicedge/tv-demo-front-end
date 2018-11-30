@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import 'Style.css'
+import './Style.css'
 
 class ManagePage extends Component {
     render = () => {
@@ -23,29 +23,29 @@ class ManagePage extends Component {
                     }
                 </script>
 
-                <header class="menu">
+                <header className="menu">
                     <h1>
                         <span>Manage</span>
                         <a href="preview.html">Preview</a>
                     </h1>
                 </header>
-                <main class="manage_wrapper">
+                <main className="manage_wrapper">
                     <section class="sidebar">
                         <h2>Shows</h2>
-                        <ul class="showlist">
+                        <ul className="showlist">
                             <li>
                                 <button onclick={this.clickedShow1}>King of the Hill</button>
-                                <button class="deletebutton" onclick={this.clickedDeleteShow1}>-</button>
+                                <button className="deletebutton" onclick={this.clickedDeleteShow1}>-</button>
                             </li>
                             <li>
                                 <button onclick={this.clickedShow2}>It's Always Sunny in Philadelphia</button>
-                                <button class="deletebutton" onclick={this.clickedDeleteShow2}>-</button>
+                                <button className="deletebutton" onclick={this.clickedDeleteShow2}>-</button>
                             </li>
                         </ul>
                     </section>
-                    <section class="content">
+                    <section className="content">
                         <h2>Add a Show</h2>
-                        <form class="textfields">
+                        <form className="textfields">
                             <div>
                                 <label>Name:</label>
                                 <input type="search" name="name" />
