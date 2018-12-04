@@ -26,7 +26,7 @@ class ManagePage extends Component {
                 <header className="menu">
                     <h1>
                         <span>Manage</span>
-                        <a href="preview.html">Preview</a>
+                        <a href="/preview">Preview</a>
                     </h1>
                 </header>
                 <main className="manage_wrapper">
@@ -52,7 +52,7 @@ class ManagePage extends Component {
                             </div>
                             <div>
                                 <label>Rating:</label>
-                                <input type="number" name="rating"/>
+                                <input type="number" name="rating" />
                             </div>
                             <div>
                                 <label>Image URL:</label>

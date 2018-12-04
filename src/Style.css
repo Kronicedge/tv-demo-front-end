@@ -64,6 +64,14 @@ footer {
 	height: auto;
 }
 
+.manage_wrapper .sidebar {
+	height: 1000px;
+}
+
+.manage_wrapper .content {
+	margin-bottom: 500px;
+}
+
 .showlist {
 	display: flex;
 	flex-direction: column;
