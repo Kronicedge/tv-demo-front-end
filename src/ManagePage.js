@@ -1,28 +1,23 @@
 import React, { Component } from 'react'
 import './Style.css'
+import TVShow from './TVShow.js'
 
 class ManagePage extends Component {
+    
+    tvShowSelected = () => {
+        console.log("tvShowSelected")
+    }
+    tvShowDeleted = () => {
+        console.log("tvShowDeleted")
+    }
+
+    saveTVShow = () => {
+        console.log("saveTVShow")
+    }
+
     render = () => {
         return (
             <div>
-                <script>
-                    clickedShow1 = () => {
-                        console.log("You clicked King of the Hill")
-                    }
-                    clickedDeleteShow1 = () => {
-                        console.log("You clicked to delete King of the Hill")
-                    }
-                    clickedShow2 = () => {
-                        console.log("You clicked It's Always Sunny in Philadelphia")
-                    }
-                    clickedDeleteShow2 = () => {
-                        console.log("You clicked to delete It's Always Sunny in Philadelphia")
-                    }
-                    clickedSubmit = () => {
-                        console.log("You clicked submit")
-                    }
-                </script>
-
                 <header className="menu">
                     <h1>
                         <span>Manage</span>
@@ -30,16 +25,14 @@ class ManagePage extends Component {
                     </h1>
                 </header>
                 <main className="manage_wrapper">
-                    <section class="sidebar">
+                    <section className="sidebar">
                         <h2>Shows</h2>
                         <ul className="showlist">
                             <li>
-                                <button onclick={this.clickedShow1}>King of the Hill</button>
-                                <button className="deletebutton" onclick={this.clickedDeleteShow1}>-</button>
+                                <TVShow name="King of the Hill" allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />                                
                             </li>
                             <li>
-                                <button onclick={this.clickedShow2}>It's Always Sunny in Philadelphia</button>
-                                <button className="deletebutton" onclick={this.clickedDeleteShow2}>-</button>
+                                <TVShow name="It's Always Sunny in Philadelphia" allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
                             </li>
                         </ul>
                     </section>
@@ -58,7 +51,7 @@ class ManagePage extends Component {
                                 <label>Image URL:</label>
                                 <input type="url" name="imageURL" />
                             </div>
-                            <button type="submit" onclick={this.clickedSubmit}>Create Entry</button>
+                            <button onClick={this.saveTVShow}>Create Entry</button>
                         </form>
                     </section>
                 </main>

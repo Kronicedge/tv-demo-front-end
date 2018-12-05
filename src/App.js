@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './Style.css'
 import ManagePage from './ManagePage.js'
 import PreviewPage from './PreviewPage.js'
-import Pictures from './Pictures'
+//import Pictures from './Pictures'
+
 
 
 class App extends Component {
-  render() {
+  render = () => {
     return (
       <Router>
         <div className="App">
