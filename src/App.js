@@ -6,7 +6,6 @@ import PreviewPage from './PreviewPage.js'
 //import Pictures from './Pictures'
 
 
-
 class App extends Component {
   render = () => {
     return (

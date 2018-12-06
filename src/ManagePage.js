@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import './Style.css'
 import TVShow from './TVShow.js'
+import SiteNav from './SiteNav'
 
 class ManagePage extends Component {
-    
+
     tvShowSelected = () => {
         console.log("tvShowSelected")
     }
@@ -18,18 +19,17 @@ class ManagePage extends Component {
     render = () => {
         return (
             <div>
-                <header className="menu">
-                    <h1>
-                        <span>Manage</span>
-                        <a href="/preview">Preview</a>
-                    </h1>
+                <header>
+                    <SiteNav>
+                    </SiteNav>
                 </header>
+
                 <main className="manage_wrapper">
                     <section className="sidebar">
                         <h2>Shows</h2>
                         <ul className="showlist">
                             <li>
-                                <TVShow name="King of the Hill" allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />                                
+                                <TVShow name="King of the Hill" allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
                             </li>
                             <li>
                                 <TVShow name="It's Always Sunny in Philadelphia" allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />

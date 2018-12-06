@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Style.css'
 import TVShow from './TVShow.js'
+import SiteNav from './SiteNav'
 
 
 class PreviewPage extends Component {
@@ -12,11 +13,9 @@ class PreviewPage extends Component {
     render = () => {
         return (
             <div>
-                <header className="menu">
-                    <h1>
-                        <a href="/">Manage</a>
-                        <span>Preview</span>
-                    </h1>
+                <header>
+                    <SiteNav>
+                    </SiteNav>
                 </header>
                 <section className="preview_wrapper">
 
