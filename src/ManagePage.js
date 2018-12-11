@@ -5,15 +5,45 @@ import SiteNav from './SiteNav'
 
 class ManagePage extends Component {
 
+    state = { }
+
     tvShowSelected = () => {
         console.log("tvShowSelected")
     }
+
     tvShowDeleted = () => {
-        console.log("tvShowDeleted")
+        this.setState ({name: '', rating: '', url: ''})
     }
 
-    saveTVShow = () => {
-        console.log("saveTVShow")
+
+    updateShows = (e) => {
+        this.setState({ name: e.target.value })
+    }
+
+    updateRating = (e) => {
+        this.setState({ rating: e.target.value })
+    }
+
+    updateImage = (e) => {
+        this.setState({ url: e.target.value })
+    }
+
+    saveTVShow = (e) => {
+        e.preventDefault()
+        this.setState({
+            nameSaved : this.state.name,
+            ratingSaved : this.state.rating,
+            imageSaved : this.state.url 
+        })
+        this.setState ({
+            name: '',
+            rating: '',
+            url: ''
+        })
+    }
+
+    renderShows = () => {
+        return (this.state.nameSaved ? <TVShow name={this.state.nameSaved} value={this.state.name} allowDelete={true}/> : null)
     }
 
     render = () => {
@@ -29,11 +59,11 @@ class ManagePage extends Component {
                         <h2>Shows</h2>
                         <ul className="showlist">
                             <li>
-                                <TVShow name="King of the Hill" allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
+                                {this.renderShows()}
                             </li>
-                            <li>
+                            {/* <li>
                                 <TVShow name="It's Always Sunny in Philadelphia" allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
-                            </li>
+                            </li> */}
                         </ul>
                     </section>
                     <section className="content">
@@ -41,15 +71,15 @@ class ManagePage extends Component {
                         <form className="textfields">
                             <div>
                                 <label>Name:</label>
-                                <input type="search" name="name" />
+                                <input value={this.state.name} onChange={this.updateShows} type="search" name="name" />
                             </div>
                             <div>
                                 <label>Rating:</label>
-                                <input type="number" name="rating" />
+                                <input value={this.state.rating} onChange={this.updateRating} type="number" name="rating" />
                             </div>
                             <div>
                                 <label>Image URL:</label>
-                                <input type="url" name="imageURL" />
+                                <input value={this.state.url} onChange={this.updateImage} type="url" name="imageURL" />
                             </div>
                             <button onClick={this.saveTVShow}>Create Entry</button>
                         </form>
