@@ -14,8 +14,7 @@ class PreviewPage extends Component {
         return (
             <div>
                 <header>
-                    <SiteNav>
-                    </SiteNav>
+                    <SiteNav/>
                 </header>
                 <section className="preview_wrapper">
 

@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class TVShow extends Component {
-    renderDelete = () => {
+
+  static PropTypes = {
+    requiredname: PropTypes.string,
+    optionalallowDelete: PropTypes.boolean,
+    requiredselectHandler: PropTypes.function,
+    optiondeleteHandler: PropTypes.function
+  }
+  renderDelete = () => {
       if (this.props.allowDelete === true) {
         return (
           <button onClick={this.props.deleteHandler}>-</button>
