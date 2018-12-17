@@ -2,6 +2,15 @@ import React, { Component } from 'react'
 import TVShow from './TVShow'
 
 class ManagePage extends Component {
+
+    tvShowSelected = () => {
+        console.log('tvShowSelected')
+    }
+
+    tvShowDeleted = () => {
+        console.log('tvShowDelete')
+    }
+
     render = () => {
         return (
             <div>
@@ -16,10 +25,10 @@ class ManagePage extends Component {
                         <h2>Shows</h2>
                         <ul>
                             <p>
-                                <li><TVShow name='King of the Hill' allowDelete={true}></TVShow></li>
-                                <li><TVShow name='Seinfeld' allowDelete={true}></TVShow></li>
-                                <li><TVShow name='The Office' allowDelete={true}></TVShow></li>
-                                <li><TVShow name='Fresh Prince of Bel-Air' allowDelete={true}></TVShow></li>  
+                                <li><TVShow name='King of the Hill' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li>
+                                <li><TVShow name='Seinfeld' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}>></TVShow></li>
+                                <li><TVShow name='The Office' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}>></TVShow></li>
+                                <li><TVShow name='Fresh Prince of Bel-Air' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}>></TVShow></li>  
                             </p>
                         </ul>
                     </div>
