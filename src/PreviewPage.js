@@ -17,10 +17,10 @@ class PreviewPage extends Component {
                         <h2>Shows</h2>
                         <ul>
                             <p>
-                                <li><TVShow name='King of the Hill' allowDelete={false}></TVShow></li>
-                                <li><TVShow name='Seinfeld' allowDelete={false}></TVShow></li>    
-                                <li><TVShow name='The Office' allowDelete={false}></TVShow></li>    
-                                <li><TVShow name='Fresh Prince of Bel-Air' allowDelete={false}></TVShow></li>        
+                                <li><TVShow name='King of the Hill' allowDelete={false} selectHandler={this.tvShowSelected}></TVShow></li>
+                                <li><TVShow name='Seinfeld' allowDelete={false} selectHandler={this.tvShowSelected}></TVShow></li>    
+                                <li><TVShow name='The Office' allowDelete={false} selectHandler={this.tvShowSelected}></TVShow></li>    
+                                <li><TVShow name='Fresh Prince of Bel-Air' allowDelete={false} selectHandler={this.tvShowSelected}></TVShow></li>        
                             </p>
                         </ul>
                     </div>

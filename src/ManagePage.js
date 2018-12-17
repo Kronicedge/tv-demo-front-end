@@ -11,6 +11,11 @@ class ManagePage extends Component {
         console.log('tvShowDelete')
     }
 
+    saveTVShow = (e) => {
+        e.preventDefault()
+        console.log('saveTVShow')
+    }
+
     render = () => {
         return (
             <div>
@@ -47,7 +52,7 @@ class ManagePage extends Component {
                                 <label>Image URL:</label>
                                 <input type='search' name='Image URL' />
                             </div>
-                            <button type='submit'>Create/Update</button>
+                            <button type='submit' onClick={this.saveTVShow} >Create/Update</button>
                         </form>
 
                     </div>
