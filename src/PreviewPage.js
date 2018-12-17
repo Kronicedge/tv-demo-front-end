@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TVShow from './TVShow'
+import SiteNav from './SiteNav'
 
 
 class PreviewPage extends Component {
@@ -8,8 +9,7 @@ class PreviewPage extends Component {
             <div>
                 <header class='menu'>
                 <h1>
-                    <a href='./manage.html'>Manage</a>
-                    <span>Preview</span>
+                    <SiteNav/>
                 </h1>
                 </header>
                 <main class='wrapper'>
@@ -31,7 +31,7 @@ class PreviewPage extends Component {
                                 <span>Rating</span>
                             </h2>
                         </div>
-                        <img src='./Pictures/Fresh_Prince_HIGH.jpeg' alt='Show Thumbnail'/>
+                        <img src='../public/Pictures/Fresh_Prince_HIGH.jpeg' alt='Fresh Prince of Bel-Air'/>
                     </div>
                 </main>
             </div>

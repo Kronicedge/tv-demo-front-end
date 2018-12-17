@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TVShow from './TVShow'
+import SiteNav from './SiteNav'
 
 class ManagePage extends Component {
 
@@ -21,8 +22,7 @@ class ManagePage extends Component {
             <div>
                 <header className='menu'>
                     <h1>
-                        <span>Manage</span>
-                        <a href='./preview.html'>Preview</a>
+                        <SiteNav/>
                     </h1>
                 </header>
                 <main className='wrapper'>

@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
+import {Switch, Route} from 'react-router-dom'
 import './Style.css'
 import ManagePage from './ManagePage.js'
 import PreviewPage from './PreviewPage'
-import TVShow from './TVShow'
 
 
 class App extends Component {
   render = () => {
     return (
-      <ManagePage/>
+      <Switch>
+        <Route exact path='/' component={ManagePage}/>
+        <Route path='/preview' component={PreviewPage}/>
+      </Switch>
     )
   }
 }
