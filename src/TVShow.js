@@ -9,9 +9,9 @@ export default class TVShow extends Component {
         selectHandler: PropTypes.func.isRequired,
         deleteHandler: PropTypes.func
     }
-    
+
     renderDelete = () => {
-        return (this.props.allowDelete ? <span><button type='delete' onClick={this.props.deleteHandler}>-</button></span> :null)
+        return (this.props.allowDelete ? <span><button type='delete' onClick={this.props.deleteHandler}>-</button></span> : null)
     }
 
     render = () => {
