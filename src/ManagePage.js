@@ -5,66 +5,66 @@ import SiteNav from './SiteNav'
 class ManagePage extends Component {
 
     state={
-        show :{
-         nameInProgress : '',
-         ratingInProgress : '',
-         urlInProgress : ''
-        },
-        showSaved :{
-            nameSaved: '',
-            ratingSaved: '',
-            urlSaved: ''
+        nameInProgress : '',
+        ratingInProgress : '',
+        urlInProgress : '',
+        nameSaved: '',
+        ratingSaved: '',
+        urlSaved: ''
         }
-    }
+    
 
     tvShowSelected = () => {
         this.setState({
-            show: {
-                nameInProgress: this.state.showSaved.nameSaved,
-                ratingInProgress: this.state.showSaved.ratingSaved,
-                urlInProgress: this.state.showSaved.urlSaved
-            }
-        })
+                nameInProgress: this.state.nameSaved,
+                ratingInProgress: this.state.ratingSaved,
+                urlInProgress: this.state.urlSaved
+            })
     }
 
     tvShowDeleted = () => {
-        console.log('tvShowDelete')
+        this.setState ({
+            nameInProgress : '',
+            ratingInProgress : '',
+            urlInProgress : '',
+            nameSaved: '',
+            ratingSaved: '',
+            urlSaved: ''            
+        })
     }
 
     changeName = (e) => {
-        this.setState({show:{nameInProgress: e.target.value}})
+        this.setState({nameInProgress: e.target.value})
     }
 
     changeRating = (e) => {
-        this.setState({show:{ratingInProgress: e.target.value}})
+        this.setState({ratingInProgress: e.target.value})
     }
 
     changeURL = (e) => {
-        this.setState({show:{urlInProgress: e.target.value}})
+        this.setState({urlInProgress: e.target.value})
     }
 
     saveTVShow = (e) => {
         e.preventDefault()
         this.setState({
-            showSaved :{
-            nameSaved : this.state.show.nameInProgress,
-            ratingSaved : this.state.show.ratingInProgress,
-            urlSaved : this.state.show.urlInProgress
-            }
+            nameSaved : this.state.nameInProgress,
+            ratingSaved : this.state.ratingInProgress,
+            urlSaved : this.state.urlInProgress
         })
+    
+
         this.setState ({
-            show : {
-                nameInProgress: '',
-                ratingInProgress: '',
-                urlInProgress: ''
-            }
+            nameInProgress: '',
+            ratingInProgress: '',
+            urlInProgress: ''
         })
         console.log(this.state)
     }
 
     renderShows = () => {
         return (
-        <TVShow name={this.state.showSaved.nameSaved} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow>
+        this.state.nameSaved ? <TVShow name={this.state.nameSaved} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow> : null
         )
     }
 
@@ -80,13 +80,11 @@ class ManagePage extends Component {
                     <div className='sidebar'>
                         <h2>Shows</h2>
                         <ul>
-                            <p>
-                                <li>{this.renderShows}</li>
+                                <li>{this.renderShows()}</li>
                                 {/* <li><TVShow name='King of the Hill' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li>
                                 <li><TVShow name='Seinfeld' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}>></TVShow></li>
                                 <li><TVShow name='The Office' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}>></TVShow></li>
                                 <li><TVShow name='Fresh Prince of Bel-Air' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}>></TVShow></li>   */}
-                            </p>
                         </ul>
                     </div>
                     <div className='form'>
@@ -94,15 +92,15 @@ class ManagePage extends Component {
                             <h2>Add a Show</h2>
                             <div>
                                 <label>Name:</label>
-                                <input type='search' name='Name' onChange={this.changeName} value={this.state.show.nameInProgress}/>
+                                <input type='search' name='Name' onChange={this.changeName} value={this.state.nameInProgress}/>
                             </div>
                             <div>
                                 <label>Rating:</label>
-                                <input type='search' name='Rating' onChange={this.changeRating} value={this.state.show.ratingInProgress}/>
+                                <input type='search' name='Rating' onChange={this.changeRating} value={this.state.ratingInProgress}/>
                             </div>
                             <div>
                                 <label>Image URL:</label>
-                                <input type='search' name='Image URL' onChange={this.changeURL} value={this.state.show.urlInProgress}/>
+                                <input type='search' name='Image URL' onChange={this.changeURL} value={this.state.urlInProgress}/>
                             </div>
                             <button type='submit' onClick={this.saveTVShow}>Create/Update</button>
                         </form>
