@@ -1,40 +1,34 @@
 import React, { Component } from 'react'
-import './Style.css'
-import TVShow from './TVShow.js'
-import SiteNav from './SiteNav'
-
 
 class PreviewPage extends Component {
-    
-    tvShowSelected = () => {
-        console.log("tvShowSelected")
-    }
-    
     render = () => {
         return (
             <div>
-                <header>
-                    <SiteNav/>
+                <header class="menu">
+                    <h1>
+                        <a href="manage.html">Manage</a>
+                        <span>Preview</span>
+                    </h1>
                 </header>
-                <section className="preview_wrapper">
+                <section class="preview_wrapper">
 
-                    <section className="sidebar">
+                    <section class="sidebar">
                         <h2>Shows</h2>
-                        <ul className="showlist">
+                        <ul class="showlist">
                             <li>
-                                <TVShow name="King of the Hill" allowDelete={false} selectHandler={this.tvShowSelected}/>
+                                <button>King of the Hill</button>
                             </li>
                             <li>
-                                <TVShow name="It's Always Sunny in Philadelphia" allowDelete={false} selectHandler={this.tvShowSelected}/>
+                                <button>It's Always Sunny in Philadelphia</button>
                             </li>
                         </ul>
                     </section>
 
-                    <section className="content_left">
+                    <section class="content_left">
                         <h2>Show Name</h2>
-                        <img src="https://vignette.wikia.nocookie.net/soundeffects/images/4/42/KOTH_Logo.jpg/revision/latest?cb=20140530074540" alt="Self Portrait" />
+                        <img src="https://vignette.wikia.nocookie.net/soundeffects/images/4/42/KOTH_Logo.jpg/revision/latest?cb=20140530074540" />
                     </section>
-                    <h2 className="content_right">Rating</h2>
+                    <h2 class="content_right">Rating</h2>
 
                 </section>
                 <footer>
