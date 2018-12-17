@@ -1,0 +1,59 @@
+.menu h1{
+	display: flex;
+	justify-content: space-around; 
+	background: red;
+	border: 4px solid;
+	text-decoration: underline;
+	font-size: 60px;
+	margin-bottom: 0px;
+}
+
+.menu h1:first-child {
+	border-right: 4px solid;
+}
+
+.menu a:visited {
+	color: black;
+}
+
+body {
+	background-color: lightgrey;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: flex-start;
+	
+}
+
+.sidebar {
+	height: 100%;
+	border-right: 4px solid;
+	margin-right: 350px;
+	padding-right: 10px;
+}
+
+.sidebar h2 {
+	text-align: center;
+	text-decoration: underline;
+}
+
+.sidebar ul {
+	list-style-type: none;
+}
+
+.sidebar li {
+	margin-bottom: 20px;
+}
+
+.sidebar li button:first-of-type {
+	margin-right: 10px;
+}
+
+.preview div h2:first-child {
+	margin-right: 100px;
+}
+
+.preview img {
+	height: 100%;
+}
