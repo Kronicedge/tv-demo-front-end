@@ -15,11 +15,16 @@ class PreviewPage extends Component {
         rating: '',
         url: '',
         ratingSelected: '',
-        urlSelected: ''
+        urlSelected: '',
+        showSelected: ''
     }
 
     tvShowSelected = () => {
-        console.log('this is tvShowSelected Preview')
+        this.setState({
+            showSelected: this.props.show,
+            ratingSelected: this.props.rating,
+            urlSelected: this.props.url
+        })
     }
 
     renderShows = () => {

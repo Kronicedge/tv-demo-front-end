@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     show: '',
     rating: '',
-    url: '',
+    url: ''
   }
 
   tvShowDeleted = () => {
@@ -27,11 +27,6 @@ class App extends Component {
       rating: showToSave.rating,
       url: showToSave.url
     })
-    this.setState({
-      nameInProgress: '',
-      ratingInProgress: '',
-      urlInProgress: ''
-  })
   }
 
   renderManagePage = () => {
@@ -39,7 +34,7 @@ class App extends Component {
   }
 
   renderPreviewPage = () => {
-    return (<PreviewPage show={this.state.show} rating={this.state.rating} url={this.state.url}></PreviewPage>)
+    return (<PreviewPage show={this.state.show} rating={this.state.rating} url={this.state.url} tvShowDeleted={this.tvShowDeleted}></PreviewPage>)
   }
 
   render = () => {

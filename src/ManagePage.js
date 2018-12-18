@@ -17,6 +17,9 @@ class ManagePage extends Component {
         urlInProgress: '',
     }
 
+    currentState = () => {
+        console.log(this.state)
+    }
 
     tvShowSelected = () => {
         this.setState({
@@ -24,11 +27,15 @@ class ManagePage extends Component {
             ratingInProgress: this.props.rating,
             urlInProgress: this.props.url
         })
-        console.log(this.state)
     }
 
     tvShowDeleted = () => {
         this.props.tvShowDeleted()
+        this.setState({
+            nameInProgress: '',
+            ratingInProgress: '',
+            urlInProgress: ''
+        })
     }
 
     changeName = (e) => {
@@ -72,7 +79,7 @@ class ManagePage extends Component {
                         <SiteNav />
                     </h1>
                 </header>
-                <main className='wrapper'>
+                <main className='wrapper' onClick={this.currentState}>
                     <div className='sidebar'>
                         <h2>Shows</h2>
                         <ul>
