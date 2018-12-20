@@ -10,7 +10,8 @@ class App extends Component {
   state = {
     show: '',
     rating: '',
-    url: ''
+    url: '',
+    tvShows: []
   }
 
   tvShowDeleted = () => {
@@ -20,21 +21,21 @@ class App extends Component {
       url: ''
     })
   }
-
+  
   saveTVShow = (showToSave) => {
-    this.setState({
-      show: showToSave.show,
-      rating: showToSave.rating,
-      url: showToSave.url
-    })
-  }
-
+    this.setState((prev) => {
+      return {
+        tvShows : [...prev.tvShows, showToSave]
+      } 
+  })
+}
+  
   renderManagePage = () => {
-    return (<ManagePage show={this.state.show} rating={this.state.rating} url={this.state.url} tvShowDeleted={this.tvShowDeleted} saveShow={this.saveTVShow}></ManagePage>)
+    return (<ManagePage tvShows={this.state.tvShows} show={this.state.show} rating={this.state.rating} url={this.state.url} tvShowDeleted={this.tvShowDeleted} saveShow={this.saveTVShow}></ManagePage>)
   }
 
   renderPreviewPage = () => {
-    return (<PreviewPage show={this.state.show} rating={this.state.rating} url={this.state.url} tvShowDeleted={this.tvShowDeleted}></PreviewPage>)
+    return (<PreviewPage tvShows={this.state.tvShows} show={this.state.show} rating={this.state.rating} url={this.state.url} tvShowDeleted={this.tvShowDeleted}></PreviewPage>)
   }
 
   render = () => {

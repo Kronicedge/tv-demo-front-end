@@ -7,8 +7,9 @@ class ManagePage extends Component {
 
     static propTypes = {
         show: PropTypes.object.isRequired,
-        showDeleted: PropTypes.func.isRequired,
-        saveShow: PropTypes.func.isRequired
+        tvShowDeleted: PropTypes.func.isRequired,
+        saveTVShow: PropTypes.func.isRequired,
+        tvShows: PropTypes.array.isRequired
     }
 
     state = {
@@ -17,8 +18,8 @@ class ManagePage extends Component {
         urlInProgress: '',
     }
 
-    currentState = () => {
-        console.log(this.state)
+    tvShows = () => {
+        console.log(this.props.tvShows)
     }
 
     tvShowSelected = () => {
@@ -62,13 +63,16 @@ class ManagePage extends Component {
             ratingInProgress: '',
             urlInProgress: ''
         })
-        console.log(this.state)
     }
 
     renderShows = () => {
-        return (
-            this.props.show ? <TVShow name={this.props.show} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow> : null
-        )
+        let tvShowsElements = []
+        for (let tvShow of this.props.tvShows) {
+            tvShowsElements.push(
+                (tvShow.show ? <li><TVShow name={tvShow.show} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li> : null)
+            )
+        }
+    return tvShowsElements
     }
 
     render = () => {
@@ -79,22 +83,18 @@ class ManagePage extends Component {
                         <SiteNav />
                     </h1>
                 </header>
-                <main className='wrapper' onClick={this.currentState}>
+                <main className='wrapper'>
                     <div className='sidebar'>
                         <h2>Shows</h2>
                         <ul>
-                            <li>{this.renderShows()}</li>
-                            {/* <li><TVShow name='King of the Hill' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li>
-                                <li><TVShow name='Seinfeld' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}>></TVShow></li>
-                                <li><TVShow name='The Office' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}>></TVShow></li>
-                                <li><TVShow name='Fresh Prince of Bel-Air' allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}>></TVShow></li>   */}
+                            {this.renderShows()}
                         </ul>
                     </div>
                     <div className='form'>
                         <form>
                             <h2>Add a Show</h2>
                             <div>
-                                <label>Name:</label>
+                                <label onClick={this.tvShows}>Name: </label >
                                 <input type='search' name='Name' onChange={this.changeName} value={this.state.nameInProgress} />
                             </div>
                             <div>
