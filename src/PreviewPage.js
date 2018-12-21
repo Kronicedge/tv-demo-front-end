@@ -7,7 +7,8 @@ import SiteNav from './SiteNav'
 class PreviewPage extends Component {
 
     static propTypes = {
-        show: PropTypes.object.isRequired
+        show: PropTypes.object.isRequired,
+        tvShows: PropTypes.array.isRequired
     }
 
     state = {
@@ -25,8 +26,26 @@ class PreviewPage extends Component {
     }
 
     renderShows = () => {
-        return (this.props.show ? <TVShow name={this.props.show} selectHandler={this.tvShowSelected}></TVShow> : null)
+        return this.props.tvShows
+        .filter((tvShow) => {
+            return (
+                tvShow.rating < 4 
+                ? tvShow.show
+                : null
+            )
+        })
+        .map((tvShow) => {
+            return (tvShow.show ? <li><TVShow name={tvShow.show} selectHandler={this.tvShowSelected}></TVShow></li> : null)
+
+        })
+
     }
+
+    calculateAvgRating = () => {
+        return this.props.tvShows.reduce((sum, tvShow) => {
+            return sum + parseInt(tvShow.rating) / this.props.tvShows.length
+    }, 0)
+}
 
     render = () => {
         return (
@@ -39,14 +58,9 @@ class PreviewPage extends Component {
                 <main class='wrapper'>
                     <div class='sidebar'>
                         <h2>Shows</h2>
+                        <p className="average_rating">Average Rating: {this.calculateAvgRating()}</p>
                         <ul>
-                            <p>
-                                {this.renderShows()}
-                                {/* <li><TVShow name='King of the Hill' selectHandler={this.tvShowSelected}></TVShow></li>
-                                <li><TVShow name='Seinfeld' selectHandler={this.tvShowSelected}></TVShow></li>
-                                <li><TVShow name='The Office' selectHandler={this.tvShowSelected}></TVShow></li>
-                                <li><TVShow name='Fresh Prince of Bel-Air' selectHandler={this.tvShowSelected}></TVShow></li> */}
-                            </p>
+                            {this.renderShows()}
                         </ul>
                     </div>
                     <div class='preview'>

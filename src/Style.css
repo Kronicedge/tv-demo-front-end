@@ -57,3 +57,7 @@ body {
 .preview img {
 	height: 50%;
 }
+
+.average_rating {
+	text-align: center;
+}

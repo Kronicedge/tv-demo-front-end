@@ -35,7 +35,8 @@ class ManagePage extends Component {
         this.setState({
             nameInProgress: '',
             ratingInProgress: '',
-            urlInProgress: ''
+            urlInProgress: '',
+            tvShows : []
         })
     }
 
