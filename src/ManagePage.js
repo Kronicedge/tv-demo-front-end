@@ -1,16 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import TVShow from './TVShow'
 import SiteNav from './SiteNav'
 
 class ManagePage extends Component {
-
-    static propTypes = {
-        show: PropTypes.object.isRequired,
-        tvShowDeleted: PropTypes.func.isRequired,
-        saveTVShow: PropTypes.func.isRequired,
-        tvShows: PropTypes.array.isRequired
-    }
 
     state = {
         nameInProgress: '',
@@ -18,15 +10,20 @@ class ManagePage extends Component {
         urlInProgress: '',
     }
 
-    tvShows = () => {
-        console.log(this.props.tvShows)
+    componentDidMount = () => {
+        fetch('http://localhost:4000/shows/')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                console.log(JSON.stringify(myJson));
+            })
     }
-
     tvShowSelected = () => {
         this.setState({
-            nameInProgress: this.props.show,
-            ratingInProgress: this.props.rating,
-            urlInProgress: this.props.url
+            nameInProgress: this.state.tvShow.name,
+            ratingInProgress: this.props.tvShow.rating,
+            urlInProgress: this.props.tvShow.url
         })
     }
 
@@ -36,7 +33,7 @@ class ManagePage extends Component {
             nameInProgress: '',
             ratingInProgress: '',
             urlInProgress: '',
-            tvShows : []
+            tvShows: []
         })
     }
 
@@ -54,11 +51,26 @@ class ManagePage extends Component {
 
     saveTVShow = (e) => {
         e.preventDefault()
-        this.props.saveShow({
+        const tvShow = {
             show: this.state.nameInProgress,
             rating: this.state.ratingInProgress,
             url: this.state.urlInProgress
-        })
+        }
+
+        fetch('http://localhost:4000/shows/', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            mode: 'cors',
+            body: JSON.stringify(tvShow)
+        }).then(res => res.json())
+            .then(savedTVShow => console.log(savedTVShow))
+            .catch(err => console.log(err))
+
+        this.componentDidMount()
+        
+
         this.setState({
             nameInProgress: '',
             ratingInProgress: '',
@@ -66,14 +78,18 @@ class ManagePage extends Component {
         })
     }
 
-    renderShows = () => {
-        return this.props.tvShows.map((tvShow) => {
+    renderShows = (savedTVShow) => {
+        if (savedTVShow) {
+            return this.state.tvShows.map((savedTVShow) => {
             return (
-                tvShow.show
-                    ? <li><TVShow name={tvShow.show} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li>
+                savedTVShow.show
+                    ? <li><TVShow name={savedTVShow.show} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li>
                     : null
             )
         })
+    } 
+    else 
+    return null
     }
 
     render = () => {
