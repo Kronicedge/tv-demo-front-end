@@ -10,22 +10,29 @@ class ManagePage extends Component {
         urlInProgress: '',
     }
 
+    consoleLog = () => {
+        console.log(this.state)
+    }
+
     componentDidMount = () => {
-        fetch('http://localhost:4000/shows/')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (myJson) {
-                console.log(JSON.stringify(myJson));
-            })
-    }
-    tvShowSelected = () => {
-        this.setState({
-            nameInProgress: this.state.tvShow.name,
-            ratingInProgress: this.props.tvShow.rating,
-            urlInProgress: this.props.tvShow.url
+        fetch('http://localhost:4000/shows/', {
+            method: 'GET',
+            headers: {
+                'content-type': 'applicaton/json'
+            }
         })
+            .then(res => res.json())
+            .then(tvShows => this.setState({ tvShows }, () => {
+                console.log(this.state.tvShows)
+            }))
     }
+    // tvShowSelected = () => {
+    //     this.setState({
+    //         nameInProgress: this.state.tvShow.name,
+    //         ratingInProgress: this.props.tvShow.rating,
+    //         urlInProgress: this.props.tvShow.url
+    //     })
+    // }
 
     tvShowDeleted = () => {
         this.props.tvShowDeleted()
@@ -62,39 +69,35 @@ class ManagePage extends Component {
             headers: {
                 'content-type': 'application/json'
             },
-            mode: 'cors',
+            // mode: 'cors',
             body: JSON.stringify(tvShow)
         }).then(res => res.json())
-            .then(savedTVShow => console.log(savedTVShow))
+            .then(tvShow => console.log(tvShow))
             .catch(err => console.log(err))
-
+            
         this.componentDidMount()
-        
 
-        this.setState({
-            nameInProgress: '',
-            ratingInProgress: '',
-            urlInProgress: ''
-        })
+
+        // this.setState({
+        //     nameInProgress: '',
+        //     ratingInProgress: '',
+        //     urlInProgress: ''
+        // })
     }
 
-    renderShows = (savedTVShow) => {
-        if (savedTVShow) {
-            return this.state.tvShows.map((savedTVShow) => {
-            return (
-                savedTVShow.show
-                    ? <li><TVShow name={savedTVShow.show} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li>
-                    : null
-            )
-        })
-    } 
-    else 
-    return null
+    renderShows = () => {
+        if (this.state.tvShows) {
+            return this.state.tvShows.map((tvShow) => {
+                return (<li><TVShow name={tvShow.name} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li>)
+            })
+        }
+        else
+            return null
     }
 
     render = () => {
         return (
-            <div>
+            <div onClick={this.consoleLog}>
                 <header className='menu'>
                     <h1>
                         <SiteNav />
