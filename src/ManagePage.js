@@ -26,21 +26,20 @@ class ManagePage extends Component {
                 console.log(this.state.tvShows)
             }))
     }
-    // tvShowSelected = () => {
-    //     this.setState({
-    //         nameInProgress: this.state.tvShow.name,
-    //         ratingInProgress: this.props.tvShow.rating,
-    //         urlInProgress: this.props.tvShow.url
-    //     })
-    // }
+    tvShowSelected = () => {
+        this.setState({
+            nameInProgress: this.state.tvShow.name,
+            ratingInProgress: this.props.tvShow.rating,
+            urlInProgress: this.props.tvShow.url
+        })
+    }
 
     tvShowDeleted = () => {
-        this.props.tvShowDeleted()
         this.setState({
             nameInProgress: '',
             ratingInProgress: '',
             urlInProgress: '',
-            tvShows: []
+            tvShow: []
         })
     }
 
@@ -69,20 +68,19 @@ class ManagePage extends Component {
             headers: {
                 'content-type': 'application/json'
             },
-            // mode: 'cors',
             body: JSON.stringify(tvShow)
         }).then(res => res.json())
             .then(tvShow => console.log(tvShow))
             .catch(err => console.log(err))
-            
+
         this.componentDidMount()
 
 
-        // this.setState({
-        //     nameInProgress: '',
-        //     ratingInProgress: '',
-        //     urlInProgress: ''
-        // })
+        this.setState({
+            nameInProgress: '',
+            ratingInProgress: '',
+            urlInProgress: ''
+        })
     }
 
     renderShows = () => {
