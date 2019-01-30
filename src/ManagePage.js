@@ -76,8 +76,8 @@ class ManagePage extends Component {
                 },
                 body: JSON.stringify(tvShow)
             })
-            const savedTVShow = await res.json()
-            console.log(savedTVShow)
+            const tvShows = await res.json()
+            console.log(tvShows)
         } catch (err) {
             console.log(err)
         } finally {
@@ -93,7 +93,7 @@ class ManagePage extends Component {
 renderShows = () => {
     if (this.state.tvShows) {
         return this.state.tvShows.map((tvShow) => {
-            return (<li><TVShow name={tvShow.name} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li>)
+            return (<li><TVShow name={tvShow.show} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted}></TVShow></li>)
         })
     }
     else
